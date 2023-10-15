@@ -20,7 +20,7 @@ public class UserController {
     var user = this.userRepository.findByUsername(userModel.getUsername());
 
     if (user != null) {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro. Usuário já existe.");
+      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro: Usuário já existe.");
     }
 
     var passwordHashred = BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
